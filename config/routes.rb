@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'goods/search'
+  end
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin,skip: [:registrations,:passwords], controllers: {
@@ -20,8 +23,9 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 
-root to: "public/homes#top"
+root to: "public/goods#search"
 get "about" => "public/homes#about"
+get "goods/search"
 namespace :public do
 end
 

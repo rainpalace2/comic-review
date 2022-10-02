@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col mt-5">
       <h4 class="text-center", style="background-color: #eee; width:200px; margin:0 50px 50px;"><b>新規会員登録</b></h4>
-      
+
       <%= form_with model: @customer, url: customer_registration_path do |f| %>
       <table class="table">
        <%= render "public/shared/error_messages", resource: resource %>
-       
+
        <tbody>
          <tr>
            <td class="field", height="50px">
@@ -21,7 +21,7 @@
              <%= f.text_field :first_name, placeholder: "first", class: "form-control" %>
            </td>
          </tr>
-         
+
          <tr>
            <td class="field", height="50px">
              <%= f.label :"メールアドレス" %>
@@ -33,7 +33,7 @@
            <td></td>
            <td></td>
          </tr>
-         
+
          <tr>
            <td class="field", height="50px">
               <%= f.label :"パスワード" %>
@@ -48,7 +48,7 @@
             <td></td>
             <td></td>
          </tr>
-         
+
          <tr>
             <td class="field", height="50px">
               <%= f.label :"パスワード(確認用)" %>
@@ -60,7 +60,7 @@
             <td></td>
             <td></td>
           </tr>
-          
+
           <tr>
             <td></td>
             <td></td>
@@ -74,8 +74,8 @@
       </table>
       <% end %>
       <h4 class="text-center col-md-offset-1 col-md-10", style="background-color: #eee; width:250px; margin:30px 20px;"><b>既に登録済みの方</b></h4>
-      <dev class="ml-5">
-        <%= render "public/shared/links" %>　からログインしてください。
+      <div class="ml-5">
+        <%= render "public/shared/links" %> からログインしてください。
       </dev>
     </div>
   </div>
