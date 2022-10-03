@@ -20,6 +20,10 @@ class Public::BooksController < ApplicationController
       end
     end
   end
+  
+  def show
+   @book = Book.find(params[:isbn])
+  end
 
 
 private
@@ -42,4 +46,6 @@ private
       item_caption: item_caption
     }
   end
+  
+  
 end

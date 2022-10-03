@@ -1,26 +1,37 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="text-center mt-5"><%= form_tag(root_path, method: :get) do %>
-        <%= text_field_tag :title, @title %>
-        <%= button_tag "検索" %>
+      <div class="text-center mt-5">
+        <%= form_with url: root_path, method: :get, local: true do |f| %>
+        <%= f.text_field :title %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
         <% end %>
       </div>
-      
-      <% if @books %>
+
+　　
+      <div class="new-arrival">
+        <h3 class="mt-4"><strong>検索結果</strong></h3>
+        <div class="new-arrival-contents" style="display: flex; flex-wrap: wrap; gap: 30px;">
          <% @books.each do |book| %>
-          <%= link_to about_path do %>
+         <div class="mr-3 mt-3">
+          <%= link_to show_path do %>
            <%= image_tag book.image_url, size: '200x200' %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="mt-3 mb-1"><%= book.title %></p>
-          <p class="mb-5"><%= book.author %></p>
-        </div>
-      </div>
-     <% end %>
-     <% end %>
-     <% end %>
+           <div class="flex-wrap: wrap;">
+            <%= book.title %>
+           </div>
+            <p class="mb-5"><%= book.author %></p>
+           <% end %>
+         </div>
+        <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
 

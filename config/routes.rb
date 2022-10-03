@@ -28,6 +28,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 
 root to: "public/books#search"
 get "about" => "public/homes#about"
+get "show" => "public/books#show"
 get "goods/search"
 namespace :public do
 end
