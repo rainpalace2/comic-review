@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
   namespace :public do
+    get 'books/search'
+  end
+  namespace :public do
     get 'goods/search'
   end
 # 管理者用
@@ -23,7 +26,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 }
 
 
-root to: "public/goods#search"
+root to: "public/books#search"
 get "about" => "public/homes#about"
 get "goods/search"
 namespace :public do

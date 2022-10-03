@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_02_042421) do
+ActiveRecord::Schema.define(version: 2022_10_03_040040) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2022_10_02_042421) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "books", primary_key: "isbn", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.integer "size"
+    t.string "booksGenreId"
+    t.text "item_caption"
+    t.string "url"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -41,4 +53,16 @@ ActiveRecord::Schema.define(version: 2022_10_02_042421) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.integer "book_id", null: false
+    t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["customer_id"], name: "index_reviews_on_customer_id"
+  end
+
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "customers"
 end
