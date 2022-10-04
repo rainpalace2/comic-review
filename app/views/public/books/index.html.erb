@@ -1,0 +1,16 @@
+<div class="new-arrival">
+        <h3 class="mt-4"><strong>検索結果</strong></h3>
+        <div class="new-arrival-contents" style="display: flex; flex-wrap: wrap; gap: 30px;">
+         <% @books.each do |book| %>
+         <div class="mr-3 mt-3">
+          <%= link_to book_path(book.id) do %>
+           <%= image_tag book.image_url, size: '200x200' %>
+           <div class="flex-wrap: wrap;">
+            <%= book.title %>
+           </div>
+            <p class="mb-5"><%= book.author %></p>
+           <% end %>
+        <% end %>
+    </div>
+    </div>
+    </div>
