@@ -67,3 +67,4 @@ gem "net-imap"
 gem 'devise'
 
 gem 'rakuten_web_service'
+gem 'bulma-rails'

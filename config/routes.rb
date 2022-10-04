@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
 
+  
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin,skip: [:registrations,:passwords], controllers: {
@@ -10,7 +11,7 @@ devise_for :admin,skip: [:registrations,:passwords], controllers: {
 
 namespace :admin do
   root to: "homes#top"
-  resources :customers, only: [:index,:show,:edit,:update]
+  resources :customers, only: [:index, :show, :edit, :update]
 end
 
 
@@ -25,8 +26,10 @@ devise_for :customers,skip: [:passwords], controllers: {
 root to: "public/books#search"
 get "about" => "public/homes#about"
 scope module: "public" do
-  resources :books, only: [:index,:show]
-end
+  resources :books, only: [:index, :show] do
+    resources :reviews, only: [:index, :create]
+  end
+ end
 
 
 
