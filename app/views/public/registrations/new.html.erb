@@ -14,11 +14,11 @@
            </td>
            <td>（姓）</td>
            <td>
-             <%= f.text_field :last_name, autofocus: true, placeholder: "last", class: "form-control" %>
+             <%= f.text_field :last_name, autofocus: true, :placeholder => "last-name", class: "form-control" %>
            </td>
             <td>（名）</td>
            <td>
-             <%= f.text_field :first_name, placeholder: "first", class: "form-control" %>
+             <%= f.text_field :first_name, :placeholder =>"first-name", class: "form-control" %>
            </td>
          </tr>
 
@@ -28,7 +28,7 @@
            </td>
            <td></td>
            <td>
-             <%= f.email_field :email,autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+             <%= f.email_field :email,autocomplete: "email", :placeholder => "sample@example.com", class: "form-control" %>
            </td>
            <td></td>
            <td></td>
@@ -43,7 +43,7 @@
             </td>
             <td></td>
             <td>
-              <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+              <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class:"form-control" %>
             </td>
             <td></td>
             <td></td>
@@ -55,7 +55,7 @@
             </td>
             <td></td>
             <td>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "form-control" %>
             </td>
             <td></td>
             <td></td>

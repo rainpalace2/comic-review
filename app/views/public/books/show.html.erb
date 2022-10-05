@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col mt-5">
+    <div class="col mt-2">
       <h4 class="text-center mt-4 ml-5", style="background-color: #eee; width:200px; padding-left: 12px;">
         <b>商品詳細</b>
       </h4>
 
-      <section class='col mt-3' style="top:50px;">
+      <section class="mt-3" style="top:50px;">
         <div class="container">
           <p><%= image_tag @book.image_url, size: '300x300' %></p>
           <p class="pt-3">タイトル : <%= @book.title %></p>
@@ -15,7 +15,11 @@
       </section>
      </div>
     </div>
-    <%= render 'public/reviews/form', review: @review, book: @book %>
+    <section>
+      <div class="container">
+        <%= render 'public/reviews/form', review: @review, book: @book %>
+      </div>
+    </section>
   </div>
 
 
