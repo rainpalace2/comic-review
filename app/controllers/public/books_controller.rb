@@ -1,4 +1,5 @@
 class Public::BooksController < ApplicationController
+  before_action :authenticate_customer!, only: [:show]
 
   def search
     @books = []

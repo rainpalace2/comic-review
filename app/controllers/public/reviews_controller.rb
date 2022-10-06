@@ -1,6 +1,6 @@
 class Public::ReviewsController < ApplicationController
   before_action :authenticate_customer!, only: [:create]
-  
+
   def index
     @book = Book.find(params[:book_id])
     @reviews = @book.reviews
@@ -8,7 +8,7 @@ class Public::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_prams)
-    # @review.customer_id = current_customer.id
+    @review.customer_id = current_customer.id
     if @review.save
       redirect_to book_reviews_path(@review.book)
     else
@@ -20,7 +20,7 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_prams
-    params.require(:review).permit(:book_id, :score, :score, :content, :customer_id)
+    params.require(:review).permit(:book_id, :score, :content)
   end
 
 end

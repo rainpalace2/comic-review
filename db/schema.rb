@@ -64,6 +64,4 @@ ActiveRecord::Schema.define(version: 2022_10_03_040040) do
     t.index ["customer_id"], name: "index_reviews_on_customer_id"
   end
 
-  add_foreign_key "reviews", "books"
-  add_foreign_key "reviews", "customers"
 end

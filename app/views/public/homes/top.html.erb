@@ -1,14 +1,18 @@
-<section class="section mt-6">
+<section class="section">
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-10">
-          <p class="is-size-1 has-text-weight-bold has-text-centered">レビューを自由に</p>
-          <br>
-          <div class="columns is-centered">
-            <div class="column is-3">
-              <%= link_to "ログイン", new_customer_session_path, class: "button is-fullwidth" %>
-              <br>
-              <%= link_to "新規登録", new_customer_registration_path, class: "button is-fullwidth" %>
+    <div class="row">
+      <div class="col-md-10">
+          <p class="text-center">レビューを自由に</p><br>
+             <div class="btn-wrapper col-10 mx-auto">
+              <div class="row">
+              <%= link_to 'ゲストログイン（閲覧用）', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+              </div>
+              <div class="row">
+              <%= link_to "ログイン", new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+              </div>
+              <div class="row">
+              <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+              </div>
             </div>
           </div>
       </div>
