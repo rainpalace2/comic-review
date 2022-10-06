@@ -29,7 +29,7 @@
         </a>
         <div class="text-light ml-md-2 ml-lg-5">
           <% if customer_signed_in? %>
-           ようこそ、<%= current_customer.last_name + first_name %>さん!
+           ようこそ、<%= current_customer.full_name %>さん!
           <% end %>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
