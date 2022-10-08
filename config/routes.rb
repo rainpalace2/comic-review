@@ -27,11 +27,15 @@ end
 
 
 
-root to: "public/books#search"
+root to: "public/goods#search"
 get "about" => "public/homes#about"
-get "search" => "public/books#search"
+get "search" => "public/goods#search"
 scope module: "public" do
-  resources :books, only: [:index, :show] do
+  resources :customers, only: [:show, :edit, :update]
+  get "customers/unsubscribe" => "customers#unsubscribe"
+  patch "customers/withdraw" => "customers#withdraw"
+  resources :books, only: [:index, :show, :edit, :create, :dest]
+  resources :goods, only: [:index, :show] do
     resources :reviews, only: [:index, :create]
   end
  end

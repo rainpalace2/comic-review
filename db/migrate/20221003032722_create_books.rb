@@ -1,14 +1,10 @@
 class CreateBooks < ActiveRecord::Migration[6.1]
   def change
-    create_table :books, id: false do |t|
-      t.bigint :isbn, null: false, primary_key: true
+    create_table :books do |t|
       t.string :title
-      t.string :author
-      t.integer :size
-      t.string :booksGenreId
-      t.text :item_caption
-      t.string :url
-      t.string :image_url
+      t.text :body
+      t.integer :user_id
+      t.float :rate
 
       t.timestamps
     end

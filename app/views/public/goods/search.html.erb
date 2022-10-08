@@ -1,13 +1,33 @@
-<h1>Rakuserach</h1>
-<div class="content">
-  <div id="search-box">
-    <%= form_tag('/',method: :get) do %>
-    <%= text_field_tag :good,"", id: "good_search", name: "keyword",placeholder: "キーワードを打ち込んでください", style: "width: 200px;" %>
-    <button title="検索" type="submit">検索</button>
-    <% end %>
-  </div>
-  <h2>検索結果</h2>
-  <div id='good_list'>
-    <%= render partial: 'good_list' %>
+<div class="container">
+ <div class="row">
+  <div class="col">
+    <div class="text-center mt-5">
+      <%= form_with url: root_path, method: :get, local: true do |f| %>
+      <%= f.text_field :title %>
+      <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+     </div>
+    </div>
   </div>
 </div>
+
+<section>
+  <div class="container">
+     <h4 class="text-center mt-4 ml-5", style="background-color: #eee; width:200px; padding-left: 12px;">
+        <b>検索結果</b>
+     </h4>
+    <div class="row">
+      <div class="col-md-12 d-flex ml-3 mt-3">
+        
+    　 
+    　 <% @books.each do |book| %>
+        <%= link_to good_path(book.id) do %>
+        <%= image_tag book.image_url, size: "200x200" %>
+        <p><%= book.title%></p>
+        <p><%= book.author %></p>
+        <% end %>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</section>

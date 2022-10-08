@@ -23,7 +23,7 @@
     　 <% @books.each do |book| %>
         <%= link_to book_path(book.id) do %>
         <%= image_tag book.image_url, size: "200x200" %>
-        <p><%= book.title%></p>
+        <p><%= book.title %></p>
         <p><%= book.author %></p>
         <% end %>
        <% end %>

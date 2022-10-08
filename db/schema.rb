@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_03_040040) do
+ActiveRecord::Schema.define(version: 2022_10_08_115306) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,14 +24,11 @@ ActiveRecord::Schema.define(version: 2022_10_03_040040) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "books", primary_key: "isbn", force: :cascade do |t|
+  create_table "books", force: :cascade do |t|
     t.string "title"
-    t.string "author"
-    t.integer "size"
-    t.string "booksGenreId"
-    t.text "item_caption"
-    t.string "url"
-    t.string "image_url"
+    t.text "body"
+    t.integer "user_id"
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -51,6 +48,18 @@ ActiveRecord::Schema.define(version: 2022_10_03_040040) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "goods", primary_key: "isbn", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.integer "size"
+    t.string "booksGenreId"
+    t.text "item_caption"
+    t.string "url"
+    t.string "image_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -1,0 +1,14 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-4'>
+      <h4 class="text-center mb-5 mx-5 mt-5", style="background-color: #eee; width:200px; padding-left: 12px;">
+        <b>マイページ</b>
+      </h4>
+    <%= render "public/customers/info", customer: @customer %>
+    <%= render "public/books/form", book: @book %>
+    </div>
+    <div class="col-md-7 offset-md-1 mt-5">
+      <%= render "public/books/index",　books: @books %>
+    </div>
+  </div>
+</div>

@@ -25,13 +25,13 @@
        <div class="rating-value-display"><span id="rating-value-display">0</span>/5</div>
    </div>
 </div>
-  <%= form_with model: review, url: book_reviews_path(book), local: true do |f| %>
+  <%= form_with model: review, url: good_reviews_path(book), local: true do |f| %>
    <%= f.hidden_field :book_id, value: book.id %>
    <%= f.hidden_field :score, id: "rating-value" %>
    <%= f.text_area :content, rows: '5', :placeholder => "レビューをここに", class: "w-100" %>
    <p>
    <%= f.submit "保存", class: "btn btn-success mt-3" %>
-   <%= link_to "他のレビューを見る", book_reviews_path(book), class: "btn btn-primary mt-3 ml-3 ml-3" %>
+   <%= link_to "他のレビューを見る", good_reviews_path(book), class: "btn btn-primary mt-3 ml-3 ml-3" %>
    </p>
   <% end %>
 

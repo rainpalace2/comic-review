@@ -1,29 +1,9 @@
 class Public::BooksController < ApplicationController
   before_action :authenticate_customer!, only: [:show]
 
-  def search
-    @books = []
-    @title = params[:title]
-    if @title.present?
-      results = RakutenWebService::Books::Book.search({
-        title: @title,
-      })
-
-      results.each do |result|
-        book = Book.new(read(result))
-        @books << book
-      end
-    end
-
-    @books.each do |book|
-      unless Book.all.include?(book)
-        book.save
-      end
-    end
-  end
-
   def index
     @books = Book.all
+    @book = Book.new
   end
 
   def show
@@ -31,27 +11,33 @@ class Public::BooksController < ApplicationController
    @review = Review.new
   end
 
+  def create
+    @book = Book.new(book_params)
+    @book.customer_id = current_customer.id
+    if @book.save
+      redirect_to book_path(@book), notice: "新規投稿に成功しました。"
+    else
+      @books = Book.all
+      render :index
+    end
+  end
+
+  def update
+    if @book.update(book_params)
+      redirect_to book_path(@book), notice: "更新しました。"
+    end
+  end
+
+  def destroy
+    @book.destroy
+    redirect_to books_path
+  end
 
 private
 
-  def read(result)
-    title = result["title"]
-    author = result["author"]
-    url = result["itemUrl"]
-    isbn = result["isbn"]
-    image_url = result["mediumImageUrl"].gsub('?_ex=120x120','')
-    booksGenreId = result["booksGenreId"]
-    item_caption = result["itemCaption"]
-    {
-      title: title,
-      author: author,
-      url: url,
-      isbn: isbn,
-      image_url: image_url,
-      booksGenreId: booksGenreId,
-      item_caption: item_caption
-    }
+  def book_params
+    params.require(:book).permit(:title, :body, :rate)
   end
-
-
+  
 end
+

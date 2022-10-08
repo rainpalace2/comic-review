@@ -1,26 +1,26 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :current_customer, only: [:edit, :update]
-  before_action :ensure_guest_customer, only: [:edit]
+  # before_action :ensure_guest_customer, only: [:edit]
+
+  def new
+    @book = Book.new
+  end
   
   def show
     @customer = Customer.find(params[:id])
+    @book = Book.new
+    @books = @customer.books
   end
-  
+
   def edit
-    @customer = Customer.find(params[:id])
-    if @customer == current_customer
-      render :edit
-      flash[:notice] ="編集に成功しました。"
-    else
-      redirect_to customer_path(current_customer)
+    @customer = current_customer
   end
-  
+
   def create
   end
-  
+
   def update
-    @customer = Customer.find(params[:id])
     @customer = current_customer
     if @customer.update(customer_pramas)
       flash[:notice] = "更新に成功しました。"
@@ -29,10 +29,10 @@ class Public::CustomersController < ApplicationController
       render :edit
     end
   end
-  
+
   def unsubscribe
   end
-  
+
   def withdraw
     @customer = current_customer
     @customer.update(is_deleted: true)
@@ -40,17 +40,23 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理を実行しました。"
     redirect_to root_path
   end
-  
+
   private
-  
+
   def customer_pramas
-    params.require(:customer).permit()
-  
-  def ensure_guest_customer
-    @customer = Customer.find(params[:id])
-    if @customer.name == "guestuser"
-      redirect_to customer_path(current_customer), notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
-    end
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :is_deleted)
   end
-  
+
+  def set_customer
+    @customer = Customer.find(paramas[:id])
+    redirect_to customer_path(@customer)
+  end
+
+  # def ensure_guest_customer
+  #   @customer = Customer.find(params[:id])
+  #   if @customer.name == "guestuser"
+  #     redirect_to customer_path(current_customer), notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
+  #   end
+  # end
+
 end
