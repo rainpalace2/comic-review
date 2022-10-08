@@ -34,7 +34,7 @@ scope module: "public" do
   resources :customers, only: [:show, :edit, :update]
   get "customers/unsubscribe" => "customers#unsubscribe"
   patch "customers/withdraw" => "customers#withdraw"
-  resources :books, only: [:index, :show, :edit, :create, :dest]
+  resources :books, only: [:index, :show, :edit, :create, :destroy]
   resources :goods, only: [:index, :show] do
     resources :reviews, only: [:index, :create]
   end
