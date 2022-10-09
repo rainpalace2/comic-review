@@ -32,7 +32,7 @@ get "about" => "public/homes#about"
 get "search" => "public/goods#search"
 scope module: "public" do
   resources :customers, only: [:show, :edit, :update]
-  get "customers/unsubscribe" => "customers#unsubscribe"
+  get "customers/:id/unsubscribe" => "customers#unsubscribe"
   patch "customers/withdraw" => "customers#withdraw"
   resources :books, only: [:index, :show, :edit, :create, :destroy]
   resources :goods, only: [:index, :show] do

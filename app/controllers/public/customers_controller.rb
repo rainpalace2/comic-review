@@ -6,7 +6,7 @@ class Public::CustomersController < ApplicationController
   def new
     @book = Book.new
   end
-  
+
   def show
     @customer = Customer.find(params[:id])
     @book = Book.new
@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def create
@@ -31,6 +31,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
+    @customer = current_customer
   end
 
   def withdraw
@@ -44,7 +45,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_pramas
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :is_deleted)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :is_deleted, :customer.id)
   end
 
   def set_customer

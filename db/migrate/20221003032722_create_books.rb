@@ -4,7 +4,6 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :body
       t.integer :customer_id
-      t.float :rate
 
       t.timestamps
     end

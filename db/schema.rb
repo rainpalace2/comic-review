@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2022_10_08_115306) do
     t.string "title"
     t.text "body"
     t.integer "customer_id"
-    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 2022_10_08_115306) do
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "score"
+    t.float "rate"
     t.integer "good_id", null: false
     t.integer "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false

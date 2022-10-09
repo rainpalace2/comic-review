@@ -3,7 +3,7 @@
     <div class='col-lg-8 offset-lg-2'>
       <h4 class="text-center mb-4 ml-5 mt-5", style="background-color: #eee; width:200px;"><b>会員情報編集</b></h3>
 
-      <%= form_with model: @customer, url: customers_infomation_path, method: :patch do |f| %>
+      <%= form_with model: @customer,　local:true do |f| %>
       <table class='table'>
         <tbody>
           <tr>
@@ -50,7 +50,7 @@
           <% end %>
         </div>
         <div class="offset-2 col-1">
-          <%= form_with model: @customer, url: customers_unsubscribe_path, method: :get do |f| %>
+          <%= form_with model: @customer do |f| %>
             <%= f.submit "退会する", class:"btn btn-danger" %>
           <% end %>
         </div>
