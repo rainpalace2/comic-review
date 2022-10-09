@@ -26,7 +26,7 @@ class Public::GoodsController < ApplicationController
   end
 
   def show
-    @book = Good.find(params[:id])
+    @good = Good.find(params[:id])
     @review = Review.new
   end
 

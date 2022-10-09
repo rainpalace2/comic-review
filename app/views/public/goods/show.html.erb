@@ -9,12 +9,12 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <p><%= image_tag @book.image_url, size: '300x300' %></p>
+              <p><%= image_tag @good.image_url, size: '300x300' %></p>
             </div>
             <div class="col-md-8 text-left">
-              <p class="pt-3">タイトル : <%= @book.title %></p>
-              <p>作者 : <%= @book.author %></p>
-              <p>説明 : <%= @book.item_caption %></p>
+              <p class="pt-3">タイトル : <%= @good.title %></p>
+              <p>作者 : <%= @good.author %></p>
+              <p>説明 : <%= @good.item_caption %></p>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
     </div>
     <section>
       <div class="container">
-        <%= render 'public/reviews/form', review: @review, book: @book %>
+        <%= render 'public/reviews/form', review: @review, good: @good %>
       </div>
     </section>
   </div>

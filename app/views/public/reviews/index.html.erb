@@ -5,17 +5,17 @@
         <div class="card mb-6">
           <header class="card-header">
             <p class="card-header-title">
-              <%= @book.title %>
+              <%= @good.title %>
             </p>
           </header>
           <div class="card-content">
             <div class="content average-score">
               <div class="star-rating mb-2">
-                <div class="star-rating-front" style="color: #ffcc00; <%= @book.review_score_percentage %>%">★★★★★</div>
+                <div class="star-rating-front" style="color: #ffcc00; <%= @good.review_score_percentage %>%">★★★★★</div>
                 <div class="star-rating-back" style="color: #ffcc00;">★★★★★</div>
               </div>
               <div class="average-score-display ml-3 pt-2">
-                <%= @book.avg_score %>点（<%= @book.reviews.count %>件のレビュー）
+                <%= @good.avg_score %>点（<%= @good.reviews.count %>件のレビュー）
               </div>
             </div>
           </div>

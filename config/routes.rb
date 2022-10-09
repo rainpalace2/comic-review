@@ -36,7 +36,7 @@ scope module: "public" do
   patch "customers/withdraw" => "customers#withdraw"
   resources :books, only: [:index, :show, :edit, :create, :destroy]
   resources :goods, only: [:index, :show] do
-    resources :reviews, only: [:index, :create]
+    resources :reviews, only: [:index, :show, :create]
   end
  end
 
