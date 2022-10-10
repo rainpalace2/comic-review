@@ -1,5 +1,6 @@
 class Public::GoodsController < ApplicationController
 
+  # APIを使用する記述
   def search
     @books = []
     @title = params[:title]
@@ -23,7 +24,6 @@ class Public::GoodsController < ApplicationController
 
   def index
     @books = Good.all
-    @goo
   end
 
   def show

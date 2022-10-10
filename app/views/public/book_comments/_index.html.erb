@@ -5,13 +5,13 @@
         
         <td>
           <%= link_to user_path(book_comment.user) do %>
-            <%= image_tag book_comment.user.get_profile_image, size: "100x100" %><br>
-            <%= book_comment.user.name %>
+            <%#= image_tag book_comment.customer.get_profile_image, size: "100x100" %><br>
+            <%= book_comment.full_name %>
           <% end %>
         </td>
         <td><%= book_comment.comment %></td>
         <td>
-          <% if book_comment.user == current_user %>
+          <% if book_comment.customer == current_customer %>
             <%= link_to "Destroy", book_book_comment_path(book, book_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
           <% end %>
         </td>

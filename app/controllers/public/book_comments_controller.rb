@@ -1,4 +1,5 @@
 class Public::BookCommentsController < ApplicationController
+  
   def create
     book = Book.find(params[:book_id])
     @comment = current_customer.book_comments.new(book_comment_params)
@@ -12,6 +13,7 @@ class Public::BookCommentsController < ApplicationController
   end
   
   private
+  
   def book_comment_params
     params.require(:book_comment).permit(:comment)
   end
