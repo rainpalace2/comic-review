@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :books
   has_many :reviews, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
 
   # is_deletedがfalseならtrueを返す
   def active_for_authentication?

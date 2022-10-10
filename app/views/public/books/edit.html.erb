@@ -1,0 +1,13 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row justify-content-center'>
+    <div class='col-md-4'>
+      <h4 class="text-center mb-5 mx-5 mt-5", style="background-color: #eee; width:200px; padding-left: 12px;">
+        <b>編集</b>
+      </h4>
+      	<%= render 'layouts/errors', obj: @book %>
+    		<%= render 'form', book: @book %>
+    		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
+    		<%= link_to 'Back', customer_path(current_customer), class: "back" %>
+    </div>
+  </div>
+</div>

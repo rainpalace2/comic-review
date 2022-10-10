@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'book_comments/create'
+    get 'book_comments/destroy'
+  end
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin,skip: [:registrations,:passwords], controllers: {
@@ -33,8 +37,10 @@ get "search" => "public/goods#search"
 scope module: "public" do
   get "customers/:id/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
   patch "customers/:id/withdraw" => "customers#withdraw", as: "withdraw"
+  resources :books, only: [:index, :show, :edit, :create, :destroy, :update] do
+    resources :book_comments, only: [:create, :destroy]
+  end
   resources :customers, only: [:show, :edit, :update]
-  resources :books, only: [:index, :show, :edit, :create, :destroy]
   resources :goods, only: [:index, :show] do
     resources :reviews, only: [:index, :show, :create]
   end

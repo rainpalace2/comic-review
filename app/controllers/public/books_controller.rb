@@ -1,14 +1,16 @@
 class Public::BooksController < ApplicationController
-  before_action :authenticate_customer!, only: [:show]
+  before_action :authenticate_customer!
+  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    # 評価の高い順、新しい順の記述
+    @books = Book.all.order(params[:sort])
     @book = Book.new
   end
 
   def show
    @book = Book.find(params[:id])
-   @review = Review.new
+   @book_comment = BookComment.new
   end
 
   def create
@@ -22,9 +24,15 @@ class Public::BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = Book.find(params[:id])
+  end
+
   def update
     if @book.update(book_params)
       redirect_to book_path(@book), notice: "更新しました。"
+    else
+      render "edit"
     end
   end
 
@@ -38,6 +46,14 @@ private
   def book_params
     params.require(:book).permit(:title, :body, :rate)
   end
-  
+
+
+  def ensure_correct_customer
+    @book = Book.find(params[:id])
+    unless @book.customer == current_customer
+      redirect_to books_path
+    end
+  end
+
 end
 

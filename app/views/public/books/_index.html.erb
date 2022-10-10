@@ -1,6 +1,3 @@
-<h4 class="mt-2 mb-4">
-  <b class="mr-4">投稿一覧</b>
-</h4>
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -15,8 +12,19 @@
       <tr>
         <td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
+        <td><%= render "public/book_comments/counter", book: book %></td>
         <td><%= render "public/books/static_rate", book: book %></td>
+        <% if book.customer == current_customer %>
+        <td><%= link_to 'Edit', edit_book_path(book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
+        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}" %></td>
+       <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="book-comments-index">
+  <%= render "public/book_comments/index", book: @book %>
+</div>
+      
+  <%= render "public/book_comments/form", book: @book, book_comment: @book_comment %>

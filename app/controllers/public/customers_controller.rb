@@ -10,6 +10,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @book = Book.new
+    @book_comment = BookComment.new
     @books = @customer.books
   end
 
