@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2022_10_08_115306) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.float "rate"
     t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -57,13 +58,14 @@ ActiveRecord::Schema.define(version: 2022_10_08_115306) do
     t.text "item_caption"
     t.string "url"
     t.string "image_url"
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "content"
-    t.integer "score"
+    t.float "score"
     t.float "rate"
     t.integer "good_id", null: false
     t.integer "customer_id", null: false

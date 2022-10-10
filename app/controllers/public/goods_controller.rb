@@ -23,6 +23,7 @@ class Public::GoodsController < ApplicationController
 
   def index
     @books = Good.all
+    @goo
   end
 
   def show

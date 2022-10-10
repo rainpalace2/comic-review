@@ -21,7 +21,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     if @customer.update(customer_pramas)
       flash[:notice] = "更新に成功しました。"
       redirect_to customer_path(@customer)
@@ -31,11 +31,11 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def withdraw
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     @customer.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理を実行しました。"
@@ -45,7 +45,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_pramas
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :is_deleted, :customer.id)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :is_deleted)
   end
 
   def set_customer

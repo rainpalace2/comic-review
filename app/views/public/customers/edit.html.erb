@@ -50,7 +50,7 @@
           <% end %>
         </div>
         <div class="offset-2 col-1">
-          <%= form_with model: @customer do |f| %>
+          <%= form_with model: @customer, url: unsubscribe_path(@customer), method: :get do |f| %>
             <%= f.submit "退会する", class:"btn btn-danger" %>
           <% end %>
         </div>

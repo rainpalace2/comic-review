@@ -9,6 +9,7 @@ class CreateGoods < ActiveRecord::Migration[6.1]
       t.text :item_caption
       t.string :url
       t.string :image_url
+      t.float :rate
 
       t.timestamps
     end
