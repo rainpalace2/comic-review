@@ -11,7 +11,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @book = Book.new
     @book_comment = BookComment.new
-    @books = @customer.books
+    @books = @customer.books.all.order(params[:sort])
   end
 
   def edit

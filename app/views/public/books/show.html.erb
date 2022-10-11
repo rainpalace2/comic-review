@@ -16,6 +16,7 @@
               <p>説明 : <%= @book.body %></p>
               <p><%= render "public/books/static_rate", book: @book %></p>
               <p><%= render "public/book_comments/form", book: @book, book_comment: @book_comment %></p>
+              <p><%= render "public/book_comments/index", book: @book %></p>
              <div class="text-right">
                <%= link_to "戻る", customer_path(current_customer), class: "btn btn-primary" %>
              </div>

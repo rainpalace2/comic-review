@@ -14,7 +14,9 @@
       <h4 class="mt-2 mb-4">
       <b class="mr-4">投稿一覧</b>
       </h4>
+      <%= link_to "新しい順", customer_path(sort: 'created_at DESC') %> | <%= link_to "評価の高い順", customer_path(sort: 'rate DESC') %>
       <%= render "public/books/index", books: @books, book: @book, book_comment: @book_comment %>
     </div>
+
   </div>
 </div>
