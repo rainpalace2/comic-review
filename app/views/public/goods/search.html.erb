@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container"></div>
  <div class="row">
   <div class="col">
     <div class="text-center mt-5">
       <%= form_with url: root_path, method: :get, local: true do |f| %>
-      <%= f.text_field :title, placeholder: "Search", class: "w-25" %>
+      <%= f.text_field :title, placeholder: "作品名・作者名で検索", class: "w-25" %>
       <%= f.submit "検索", class: "btn btn-primary" %>
       <% end %>
      </div>
@@ -11,23 +11,63 @@
   </div>
 </div>
 
-<section>
-  <div class="container-fluid">
-     <h4 class="text-center mt-4 ml-5", style="background-color: #eee; width:200px; padding-left: 12px;">
-        <b>検索結果</b>
-     </h4>
-    <div class="row">
-      <div class="col d-flex ml-3 mt-3">
-
-      
-    　 <% @books.each do |book| %>
-        <%= link_to good_path(book.id) do %>
-        <%= image_tag book.image_url, size: "200x200" %>
-        <p class="col-md-12"><%= book.title%></p>
-        <p class="col-md-12"><%= book.author %></p>
-        <% end %>
-       <% end %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="new-arrival">
+        <div class="new-arrival-contents justify-content-center mt-1" style="display:flex;">
+          <% @books.each do |book| %>
+            <%= link_to good_path(book.id) do %>
+            <div class="mr-3 mt-3">
+              <%= image_tag book.image_url, size: "200x200" %>
+            <div><%= book.title %></div>
+            <div><%= book.author %></div>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<div class="container-fiuid">
+  <div class="row justify-content-center">
+    <div class="col">
+      <div class="wrap">
+        <div class="item justify-content-center mt-1" style="display: flex;">
+          <% @books.each do |book| %>
+            <%= link_to good_path(book.id) do %>
+            <div class="mr-3 mt-3">
+              <%= image_tag book.image_url, size: "200x200" %>
+            <div><%= book.title %></div>
+            <div><%= book.author %></div>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+      <th>タイトル</th>
+      <th>作者</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= link_to good_path(book.id) do %></td>
+        <td><%= image_tag book.image_url, size: "200x200" %></td>
+        <td class="align-middle"><%= book.title %></td>
+        <td class="align-middle"><%= book.author %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
