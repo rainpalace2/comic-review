@@ -7,18 +7,22 @@
     <div class="col">
       <div class="wrap">
         <div class="item justify-content-center mt-1 row" style="display: flex;">
-          <% @books.each do |book| %>
-          <div class="col-3">
-            <%= link_to good_path(book.id) do %>
-            <div class="mr-3 mt-3">
-              <%= image_tag book.image_url, size: "200x200" %>
-            <div><%= book.title %></div>
-            <div><%= book.author %></div>
-            </div>
-            <% end %>
+          <% @books.first(8).each do |book| %>
+            <div class="col-3">
+              <%= link_to good_path(book.id) do %>
+              <div class="mr-3 mt-3">
+                <%= image_tag book.image_url, size: "200x200" %>
+              <div><%= book.title %></div>
+              <div><%= book.author %></div>
+              </div>
+              <% end %>
             </div>
           <% end %>
         </div>
+       <div class="row">
+          <div class="col-lg-8 offset-lg-4 mt-3 mb-3 text-nowrap text-right ">
+            <%= link_to "全てを見る>>", search_index_result_goods_path %>
+       </div>
       </div>
     </div>
   </div>
