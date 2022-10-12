@@ -24,6 +24,9 @@ class Public::GoodsController < ApplicationController
 
   def index
     @books = Good.page(params[:page])
+    # ransackの記述
+    @q = Good.ransack(params[:q])
+    @goods = @q.result(distinct: true)
   end
 
   def show

@@ -6,6 +6,41 @@
         <b>検索履歴</b>
     </h4>
 
+    <div class="row justify-content-center">
+     <!--form_withメソッドのransack版 -->
+  　　<%= search_form_for @q do |f| %>
+   　　<%= f.search_field :title_cont, placeholder: "タイトル" %>
+    　<%= f.submit "キーワード検索" %>
+   　<% end %>
+  　</div>
+
+    <table class='table table-hover table-inverse'>
+     <thead>
+       <tr>
+         <th></th>
+         <th>タイトル</th>
+         <th>作者</th>
+         <th>内容紹介</th>
+       </tr>
+     </thead>
+     <tbody>
+     <% if @goods.present? %>
+     <% @goods.each do |good| %>
+         <tr>
+           <td><%= link_to good_path(good.id) do %>
+           <%= image_tag good.image_url, size: "200x200" %></td>
+           <td class="align-middle"><%= good.title %><br>
+           <div class="star-rating-front", style="color: #ffcc00; <%= good.review_score_percentage %>%">★★★★★</div>
+           <%= good.avg_score %>点 (<%= good.reviews.count %>件のレビュー)
+           </td>
+           <td class="align-middle"><%= good.author %></td>
+           <td class="align-middle"><%= good.item_caption %></td>
+      　    <% end %>
+          <% end %>
+         </tr>
+       <% end %>
+     </tbody>
+    </table>
 
     <table class='table table-hover table-inverse'>
      <thead>
