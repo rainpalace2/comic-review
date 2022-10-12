@@ -36,7 +36,7 @@ class Public::GoodsController < ApplicationController
      # ransackの記述
     @q = Good.ransack(params[:q])
     @goods = @q.result(distinct: true)
-    @qs = Good.page(params[:page]).per(20)
+    @qs = @goods.page(params[:page]).per(20)
   end
 
   def search_top

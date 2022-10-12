@@ -25,7 +25,7 @@
      </thead>
      <tbody>
      <% if @goods.present? %>
-     <% @goods.each do |good| %>
+     <% @qs.each do |good| %>
          <tr>
            <td><%= link_to good_path(good.id) do %>
            <%= image_tag good.image_url, size: "200x200" %></td>

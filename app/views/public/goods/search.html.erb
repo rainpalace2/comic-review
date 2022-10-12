@@ -6,8 +6,9 @@
   <div class="row justify-content-center">
     <div class="col">
       <div class="wrap">
-        <div class="item justify-content-center mt-1" style="display: flex;">
+        <div class="item justify-content-center mt-1 row" style="display: flex;">
           <% @books.each do |book| %>
+          <div class="col-3">
             <%= link_to good_path(book.id) do %>
             <div class="mr-3 mt-3">
               <%= image_tag book.image_url, size: "200x200" %>
@@ -15,6 +16,7 @@
             <div><%= book.author %></div>
             </div>
             <% end %>
+            </div>
           <% end %>
         </div>
       </div>
