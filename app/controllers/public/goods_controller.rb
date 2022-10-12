@@ -1,4 +1,5 @@
 class Public::GoodsController < ApplicationController
+  before_action :set_search
 
   # APIを使用する記述
   def search
@@ -24,9 +25,6 @@ class Public::GoodsController < ApplicationController
 
   def index
     @books = Good.page(params[:page])
-    # ransackの記述
-    @q = Good.ransack(params[:q])
-    @goods = @q.result(distinct: true)
   end
 
   def show
@@ -34,7 +32,23 @@ class Public::GoodsController < ApplicationController
     @review = Review.new
   end
 
+  def search_index_result
+     # ransackの記述
+    @q = Good.ransack(params[:q])
+    @goods = @q.result(distinct: true)
+    @qs = Good.page(params[:page]).per(20)
+  end
+
+  def search_top
+  end
+
+
   private
+# キーワード検索をするための記述
+  def set_search
+     @q = Good.ransack(params[:q])
+    @goods = @q.result(distinct: true)
+  end
 
   def read(result)
     title = result["title"]

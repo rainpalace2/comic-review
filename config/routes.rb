@@ -31,7 +31,7 @@ end
 
 
 
-root to: "public/goods#search"
+root to: "public/goods#search_top"
 get "about" => "public/homes#about"
 get "search" => "public/goods#search"
 scope module: "public" do
@@ -43,6 +43,10 @@ scope module: "public" do
 
   resources :customers, only: [:show, :edit, :update]
   resources :goods, only: [:index, :show] do
+    collection do
+      get 'search_index_result'
+      get 'search_top'
+    end
     resources :reviews, only: [:index, :show, :create]
   end
  end

@@ -1,35 +1,6 @@
-<div class="container"></div>
- <div class="row">
-  <div class="col">
-    <div class="text-center mt-5">
-      <%= form_with url: root_path, method: :get, local: true do |f| %>
-      <%= f.text_field :title, placeholder: "作品名・作者名で検索", class: "w-25" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
-      <% end %>
-     </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col">
-      <div class="new-arrival">
-        <div class="new-arrival-contents justify-content-center mt-1" style="display:flex;">
-          <% @books.each do |book| %>
-            <%= link_to good_path(book.id) do %>
-            <div class="mr-3 mt-3">
-              <%= image_tag book.image_url, size: "200x200" %>
-            <div><%= book.title %></div>
-            <div><%= book.author %></div>
-            </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<h4 class="text-center mt-4 ml-5 mb-3", style="background-color: #eee; width:200px; padding-left: 12px;">
+    <b>検索結果</b>
+</h4>
 
 <div class="container">
   <div class="row justify-content-center">
