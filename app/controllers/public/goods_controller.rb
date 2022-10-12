@@ -23,7 +23,7 @@ class Public::GoodsController < ApplicationController
   end
 
   def index
-    @books = Good.all
+    @books = Good.page(params[:page])
   end
 
   def show
