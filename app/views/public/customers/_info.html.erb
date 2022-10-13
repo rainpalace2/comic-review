@@ -15,4 +15,10 @@
 	  <th><%= customer.email %></th>
   </tr>
 </table>
-<%= link_to "編集する", edit_customer_path(customer), class:"btn btn-primary w-25 mb-4" %>
+
+<!-- ゲストユーザーでログインしている時は編集画面のボタンを表示しない-->
+<% if customer.last_name != "guest" %>
+<div class='row'>
+ <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-primary w-25 mb-4" %>
+</div>
+<% end %>

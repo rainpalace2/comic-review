@@ -53,7 +53,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to root_path, class: 'nav-link text-light' do %>
+                <%= link_to search_top_goods_path, class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-magnifying-glass"></i> 検索
                 <% end %>
               </li>
@@ -70,7 +70,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to root_path, class: 'nav-link text-light' do %>
+                <%= link_to search_top_goods_path, class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-magnifying-glass"></i> 検索
                 <% end %>
               </li>
@@ -78,7 +78,7 @@
                   <i class="fas fa-user-plus"></i> 新規登録
                 <% end %>
               <li>
-                <%= link_to new_customer_session_path,class: 'nav-link text-light' do %>
+                <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
                   <i class="fas fa-sign-in-alt"></i> ログイン
                 <% end %>
               </li>
@@ -93,17 +93,17 @@
          <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li>
-              <%= link_to root_path,class: 'nav-link text-light' do %>
+              <%= link_to search_top_goods_path, class: 'nav-link text-light' do %>
                 <i class="fas fa-home"></i> Top
               <% end %>
             </li>
             <li>
-              <%= link_to goods_path,class: 'nav-link text-light' do %>
+              <%= link_to goods_path, class: 'nav-link text-light' do %>
                 <i class="fa-regular fa-clone"></i> 検索履歴
               <% end %>
               </li>
             <li>
-              <%= link_to search_index_result_goods_path,class: 'nav-link text-light' do %>
+              <%= link_to search_index_result_goods_path, class: 'nav-link text-light' do %>
                 <i class="fa-regular fa-bookmark"></i> Topic
               <% end %>
             </li>
