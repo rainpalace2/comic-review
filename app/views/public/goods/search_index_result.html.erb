@@ -10,7 +10,7 @@
      <!--form_withメソッドのransack版 -->
   　　<%= search_form_for @q, url: search_index_result_goods_path do |f| %>
    　　<%= f.search_field :title_cont, placeholder: "タイトル" %>
-    　<%= f.submit "キーワード検索" %>
+    　<%= f.submit "キーワード検索", class: "btn btn-primary" %>
    　<% end %>
   　</div>
 

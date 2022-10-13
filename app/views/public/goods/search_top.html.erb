@@ -1,12 +1,19 @@
-<div class="container"></div>
+<div class="container-fluid">
  <div class="row">
-  <div class="col">
-    <div class="text-center mt-5">
+  <div class="col-12">
+    <div class="text-center">
+      <%= image_tag 'comic-review.gif', style: "position:relative;" %>
+      <div class="form", style="position: absolute; top:30px; left:600px; width: 300px;">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :title, placeholder: "作品名・作者名で検索", class: "w-25" %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
+      <%= f.text_field :title, placeholder: "作品名・作者名で検索", class: "w-100" %>
+      <div class="button", style="position: absolute; top:-3px; left:300px;">
+      <%= f.submit "検索", class: "btn btn-primary"  %>
+      </div>
       <% end %>
+      </div>
      </div>
     </div>
   </div>
 </div>
+
+
