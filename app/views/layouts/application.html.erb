@@ -44,7 +44,7 @@
             <% if customer_signed_in? %>
               <li>
                 <%= link_to customer_path(current_customer), class: 'nav-link text-light' do %>
-                  <i class="fas fa-home"></i> マイページ
+                  <i class="fa-regular fa-id-card"></i> マイページ
                 <% end %>
               </li>
               <li>
@@ -94,17 +94,17 @@
           <ul class="navbar-nav ml-auto">
             <li>
               <%= link_to root_path,class: 'nav-link text-light' do %>
-                <i class="fas fa-sign-in-alt"></i> Top
+                <i class="fas fa-home"></i> Top
               <% end %>
             </li>
             <li>
               <%= link_to goods_path,class: 'nav-link text-light' do %>
-                <i class="fas fa-sign-in-alt"></i> 検索履歴
+                <i class="fa-regular fa-clone"></i> 検索履歴
               <% end %>
               </li>
             <li>
               <%= link_to search_index_result_goods_path,class: 'nav-link text-light' do %>
-                <i class="fas fa-sign-in-alt"></i> Topic
+                <i class="fa-regular fa-bookmark"></i> Topic
               <% end %>
             </li>
           </ul>

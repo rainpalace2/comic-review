@@ -4,7 +4,7 @@ class Public::GoodsController < ApplicationController
 
   # APIを使用する記述
   def search
-    @books = []
+    @books_array = []
     @title = params[:title]
     if @title.present?
       results = RakutenWebService::Books::Book.search({
@@ -13,15 +13,18 @@ class Public::GoodsController < ApplicationController
 
       results.each do |result|
         book = Good.new(read(result))
-        @books << book
+        @books_array << book
       end
     end
 
-    @books.each do |book|
+    @books_array.each do |book|
       unless Good.all.include?(book)
         book.save
       end
     end
+    
+    # array（配列）の場合のページネーション
+    @books = Kaminari.paginate_array(@books_array).page(params[:page]).per(10)
   end
 
   def index
