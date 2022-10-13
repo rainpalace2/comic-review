@@ -12,8 +12,21 @@
             <div class="content average-score">
               <div class="star-rating mb-2">
               </div>
-              <div class="average-score-display ml-3 pt-2">
-                <%= render "public/goods/static_rate", good: @good %>
+              <div class="average-score-display ml-3 mt-2 mb-2">
+                <!-- 平均点の星の表示の記述-->
+                <div class="average-review-rating mb-2" data-score=<%= @good.avg_score %>></div>
+                <script>
+                  $('.average-review-rating').empty();
+                  $('.average-review-rating').raty({
+                    readOnly: true,
+                    starOn: "<%= asset_path('star-on.png') %>",
+                    starOff: "<%= asset_path('star-off.png') %>",
+                    starHalf: "<%= asset_path('star-half.png') %>",
+                    score: function() {
+                      return $(this).attr('data-score')
+                    }
+                  });
+                </script>
                 <%= @good.avg_score %>点（<%= @good.reviews.count %>件のレビュー）
               </div>
             </div>
@@ -35,9 +48,10 @@
             <% end %>
           </tbody>
         </table>
-       <div class="text-right">
-       <%= link_to "一覧", goods_path, class: "btn btn-primary" %>
-       </div>
+       <p class="text-right">
+         <%= link_to "戻る", good_path(@good), class: "btn btn-primary mr-3" %>
+         <%= link_to "一覧", goods_path, class: "btn btn-primary" %>
+       </p>
       </div>
     </div>
   </div>

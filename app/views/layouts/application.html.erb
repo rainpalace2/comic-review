@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <div class="ml-3 mt-3">
     <% if flash[:notice] %>
       <div class="notification is-info">
         <p class="notice"><%= notice %></p>
@@ -22,6 +23,7 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
+   </div>
    <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark", style="background-color: #000;">
       <div class="container">

@@ -13,12 +13,12 @@
   </div>
 <% end %>
 
- <!--<%#= render "public/books/static_rate", good: @good %>-->
+ <%#= render "public/goods/static_rate", good: good %>
 
 <%= form_with model: review, url: good_reviews_path(good), local: true do |f| %>
  <%= f.hidden_field :good_id, value: good.id %>
 <div id="star" sytle="pt-2 pb-2">
-    <%= f.hidden_field :score, id: "rating-value" %>
+    <%= f.hidden_field :score, id: "star" %>
 </div>
  <%= f.text_area :content, rows: '5', :placeholder => "レビューをここに", class: "mt-3 w-100" %>
  <p>
@@ -28,6 +28,7 @@
 <% end %>
 
  <script>
+   $('#star').empty();
    $('#star').raty({
      size     : 20,
      starOff:  '<%= asset_path('star-off.png') %>',

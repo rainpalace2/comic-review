@@ -1,4 +1,5 @@
 class Public::GoodsController < ApplicationController
+  before_action :authenticate_customer!, except: [:search_top, :search]
   before_action :set_search
 
   # APIを使用する記述

@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  # 一部のページをアクセス制限の対象から除外する
+  # オプションとしてexcept: [:アクション名]を使用することでトップページだけはログイン前でもアクセス可能。
+  before_action :authenticate_customer!, except: [:top, :about]
 
   def after_sign_up_path_for(resource)
     root_path

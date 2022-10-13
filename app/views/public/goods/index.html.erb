@@ -21,7 +21,19 @@
            <td><%= link_to good_path(book.id) do %>
            <%= image_tag book.image_url, size: "200x200" %></td>
            <td class="align-middle"><%= book.title %><br>
-           <div class="star-rating-front", style="color: #ffcc00; <%= book.review_score_percentage %>%">★★★★★</div>
+            <div class="average-review-rating mb-2" data-score=<%= book.avg_score %>></div>
+             <script>
+             　$('.average-review-rating').empty();
+               $('.average-review-rating').raty({
+                 readOnly: true,
+                 starOn: "<%= asset_path('star-on.png') %>",
+                 starOff: "<%= asset_path('star-off.png') %>",
+                 starHalf: "<%= asset_path('star-half.png') %>",
+                 score: function() {
+                   return $(this).attr('data-score')
+                 }
+               });
+             </script>
            <%= book.avg_score %>点 (<%= book.reviews.count %>件のレビュー)
            </td>
            <td class="align-middle"><%= book.author %></td>

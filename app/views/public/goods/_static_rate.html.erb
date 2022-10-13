@@ -1,15 +1,14 @@
-<div id="rate_<%= good.id %>" class="form-group"></div>
+<div id="star_<%= good.id %>" class="form-group"></div>
 <script>
 $(document).on('turbolinks:load', function() {
-  $('#rate_<%= good.id %>').empty();
-  $('#rate_<%= good.id %>').raty({
+  $('#star_<%= good.id %>').empty();
+  $('#star_<%= good.id %>').raty({
     size: 20,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
     half: true,
-    readOnly: true,
-    score: "#{good.reviews_score_percentage(:rate).to_f.round(1)}",
+    score: "review.avg_score",
   });
 });
 </script>
