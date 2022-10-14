@@ -3,9 +3,18 @@
     <div class='col-lg-8 offset-lg-2'>
       <h4 class="text-center mb-4 ml-5 mt-5", style="background-color: #eee; width:200px;"><b>会員情報編集</b></h3>
 
-      <%= form_with model: @customer,　local:true do |f| %>
+      <%= form_with model: @customer, url: customer_path(@customer), method: :patch, local:true do |f| %>
       <table class='table'>
         <tbody>
+          <tr>
+            <td class="field">
+              <%= f.label :"プロフィール" %>
+            </td>
+            <td>
+              <%= f.file_field :profile_image, accept: "image/*" %>
+            </td>
+          </tr>
+          <tr>
           <tr>
             <td class="field">
               <%= f.label :"氏名" %>

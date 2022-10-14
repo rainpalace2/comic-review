@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :current_customer, only: [:edit, :update]
+  before_action :ensure_correct_customer, only: [:edit, :update]
   # before_action :ensure_guest_customer, only: [:edit]
 
   def new
@@ -23,7 +23,7 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    if @customer.update(customer_pramas)
+    if @customer.update(customer_params)
       flash[:notice] = "更新に成功しました。"
       redirect_to customer_path(@customer)
     else
@@ -45,14 +45,17 @@ class Public::CustomersController < ApplicationController
 
   private
 
-  def customer_pramas
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :is_deleted)
+  def customer_params
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :profile_image, :is_deleted)
   end
 
-  # def set_customer
-  #   @customer = Customer.find(paramas[:id])
-  #   redirect_to customer_path(@customer)
-  # end
+  def ensure_correct_customer
+    @customer = Customer.find(params[:id])
+     unless @customer == current_customer
+      redirect_to customer_path(current_customer)
+     end
+  end
+
 
   # def ensure_guest_customer
   #   @customer = Customer.find(params[:id])

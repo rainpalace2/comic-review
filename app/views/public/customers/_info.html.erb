@@ -2,6 +2,7 @@
   <b class="mr-4">登録情報</b>
 </h4>
 <table class='table'>
+  <tr><%= image_tag customer.get_profile_image, size: '100x100', class: "rounded-circle" %></tr>
   <tr>
 	  <th>name</th>
 	  <th><%= customer.last_name %>　<%= customer.first_name %></th>
@@ -10,15 +11,19 @@
 	  <th>カナ</th>
 	  <th><%= customer.last_name_kana %>　<%= customer.first_name_kana %></th>
   </tr>
+  <% if current_customer != customer %>
+  <% else %>
   <tr>
 	  <th>メールアドレス</th>
 	  <th><%= customer.email %></th>
   </tr>
+  <% end %>
 </table>
 
-<!-- ゲストユーザーでログインしている時は編集画面のボタンを表示しない-->
-<% if customer.last_name != "guest" %>
+<!-- 編集画面のボタンを表示しない-->
 <div class='row'>
+<% if current_customer != customer %>
+<% else %>
  <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-primary w-25 mb-4" %>
-</div>
 <% end %>
+</div>
