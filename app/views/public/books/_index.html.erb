@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% books.each do |book| %>
+    <% page.each do |book| %>
       <tr>
         <td><%= link_to (book.customer) do %>
             <%= image_tag book.customer.get_profile_image, size: "50x50", class: "rounded-circle" %></td>
@@ -25,3 +25,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="row justify-content-center mb-5">
+ <%= paginate page %>
+</div>

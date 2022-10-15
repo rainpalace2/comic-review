@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+       <h4 class="text-center mt-4 ml-3 mb-4", style="background-color: #eee; width:200px; padding-left: 12px;">
+        <b>コメント一覧</b>
+       </h4>
+       <div class="book-comments-counter"><%= render "public/book_comments/counter", book: @book, book_comment: @book_comment %></div>
+       
+       <div class="book-comments-index-all"><%= render "public/book_comments/index_all", book: @book %></div>
+       
+       <div class="text-right">
+         <%= link_to "戻る", book_path(@book), class: "btn btn-primary mb-5" %>
+       </div>
+    </div>
+  </div>
+</div>

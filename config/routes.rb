@@ -38,7 +38,7 @@ scope module: "public" do
   get "customers/:id/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
   patch "customers/:id/withdraw" => "customers#withdraw", as: "withdraw"
   resources :books, only: [:index, :show, :edit, :create, :destroy, :update] do
-   resources :book_comments, only: [:create, :destroy]
+   resources :book_comments, only: [:index, :create, :destroy]
   end
 
   resources :customers, only: [:show, :edit, :update]

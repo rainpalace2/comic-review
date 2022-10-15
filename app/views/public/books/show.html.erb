@@ -16,12 +16,13 @@
               <p>説明 : <%= @book.body %></p>
               <p><%= render "public/books/static_rate", book: @book %></p>
               <p><%= render "public/book_comments/form", book: @book, book_comment: @book_comment %></p>
-              <h4 class="mt-2 mb-4">
-              <b class="mr-4">コメント一覧</b>
-              </h4>
+              <div class="mt-2 mb-4"> 
+              <h4 class="mr-1"><b>コメント</b></h4>
+              <div class="book-comments-counter"><%= render "public/book_comments/counter", book: @book, book_comment: @book_comment %></div>
               <div class="book-comments-index"><%= render "public/book_comments/index", book: @book %></div>
+               <%= link_to "全て見る>>", book_book_comments_path(@book) %>
              <div class="text-right">
-               <%= link_to "戻る", customer_path(current_customer), class: "btn btn-primary" %>
+               <%= link_to "戻る", customer_path(current_customer), class: "btn btn-primary mb-5" %>
              </div>
             </div>
           </div>
