@@ -10,6 +10,7 @@ devise_for :admin,skip: [:registrations,:passwords], controllers: {
 namespace :admin do
   root to: "homes#top"
   resources :customers, only: [:index, :show, :edit, :update]
+  resources :reviews, only: [:index, :show, :destroy]
 end
 
 # 顧客用
