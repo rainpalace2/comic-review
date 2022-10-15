@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'book_comments/index'
+    get 'book_comments/show'
+  end
   # end
 # 管理者用
 # URL /admin/sign_in ...
@@ -11,6 +15,7 @@ namespace :admin do
   root to: "homes#top"
   resources :customers, only: [:index, :show, :edit, :update]
   resources :reviews, only: [:index, :show, :destroy]
+  resources :book_comments, only: [:index, :show, :destroy]
 end
 
 # 顧客用

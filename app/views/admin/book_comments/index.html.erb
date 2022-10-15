@@ -1,0 +1,29 @@
+<div class='container mt-5'>
+  <div class='row'>
+    <h4 class="text-center my-4", style="background-color: #eee; width:150px;"><b>コメント一覧</b></h4>
+    <table class='table table-hover'>
+      <thead style="background-color: #f5f5f5;">
+        <tr>
+          <th>ユーザー</th>
+          <th>コメント</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @book_comments.each do |book_comment| %>
+        <tr>
+          <td>
+            <%= link_to admin_book_comment_path(book_comment.id) do %>
+             <%= book_comment.customer.full_name %></td>
+            <% end %>
+          <td><%= book_comment.comment %></td>
+          <td></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+ </div>
+ <div class="row justify-content-center mt-5">
+  <%= paginate @book_comments %>
+ </div>
