@@ -6,7 +6,7 @@ class Public::BooksController < ApplicationController
     # 評価の高い順、新しい順の記述
     @books = Book.all.order(params[:sort])
     @book = Book.new
-    @page = Book.page(params[:page]).per(10)
+    @page = Book.page(params[:page])
   end
 
   def show
