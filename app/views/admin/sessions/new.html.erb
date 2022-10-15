@@ -1,26 +1,49 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div clas="col-md-8 offset-2">
+      <h4 class="text-center my-4 mt-5", style="background-color: #eee; width:200px; padding-left: 12px;"><b>ログイン</b></h4>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="field", height="50px">
+              <%= f.label :"メールアドレス" %>
+            <td>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@example.com", :size => "40", class: "form-control" %>
+            </td>
+            </td>
+          </tr>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+          <tr>
+            <td class="field", height="50px">
+              <%= f.label :"パスワード" %>
+            </td>
+            <td>
+              <%= f.password_field :password, autocomplete: "current-password", :placeholder => "password", :size => "40", class: "form-control" %>
+            </td>
+          </tr>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          <% end %>
+
+          <tr>
+            <td></td>
+            <td class="actions">
+              <%= f.submit "ログイン", class: "btn btn-primary btn-block w-25" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+
+      <h5 class="text-center", style="background-color: #eee; width:300px; margin:50px 20px 30px;">
+      <div class="ml-5">
+        <%= render "admin/shared/links" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</div>
 
-<%= render "admin/shared/links" %>
