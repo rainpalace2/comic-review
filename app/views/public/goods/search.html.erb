@@ -1,3 +1,10 @@
+<div class="row justify-content-center">
+ <%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :title, placeholder: "作品名・作者名で検索", value: params[:title], class: "w-100" %>
+  <%= f.submit "検索", class: "btn btn-primary"  %>
+ <% end %>   
+</div>
+
 <h4 class="text-center mt-4 ml-5 mb-3", style="background-color: #eee; width:200px; padding-left: 12px;">
     <b>検索結果</b>
 </h4>
@@ -48,7 +55,7 @@
       </tr>
   </tbody>
 </table>
-<div class="row justify-content-center">
+<div class="row justify-content-center mb-5">
    <%= paginate @books %>
 </div>
 

@@ -30,7 +30,19 @@
            <td><%= link_to good_path(good.id) do %>
            <%= image_tag good.image_url, size: "200x200" %></td>
            <td class="align-middle"><%= good.title %><br>
-           <div class="star-rating-front", style="color: #ffcc00; <%= good.review_score_percentage %>%">★★★★★</div>
+           <div class="average-review-rating mb-2" data-score=<%= good.avg_score %>></div>
+                <script>
+                  $('.average-review-rating').empty();
+                  $('.average-review-rating').raty({
+                    readOnly: true,
+                    starOn: "<%= asset_path('star-on.png') %>",
+                    starOff: "<%= asset_path('star-off.png') %>",
+                    starHalf: "<%= asset_path('star-half.png') %>",
+                    score: function() {
+                      return $(this).attr('data-score')
+                    }
+                  });
+                </script>
            <%= good.avg_score %>点 (<%= good.reviews.count %>件のレビュー)
            </td>
            <td class="align-middle"><%= good.author %></td>
@@ -41,6 +53,6 @@
        <% end %>
      </tbody>
     </table>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
      <%= paginate @qs %>
     </div>

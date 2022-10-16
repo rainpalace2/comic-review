@@ -15,14 +15,14 @@ class Public::BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.customer_id = current_customer.id
+    @customer = current_customer
+    @book = @customer.books.build(book_params)
     if @book.save
       redirect_to book_path(@book), notice: "新規投稿に成功しました。"
     else
       @books = Book.all.order(params[:sort])
       @books = @books.page(params[:page]).per(10)
-      render "index"
+      render "public/customers/show"
     end
   end
 

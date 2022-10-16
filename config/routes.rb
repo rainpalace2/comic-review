@@ -44,6 +44,7 @@ scope module: "public" do
   resources :customers, only: [:show, :edit, :update]
   resources :goods, only: [:index, :show] do
     collection do
+      get 'search'
       get 'search_index_result'
       get 'search_top'
     end
