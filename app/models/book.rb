@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   
   validates :title, presence: true
   validates :body, presence: true
+  validates :rate, presence: true
   
   def get_image
    (image.attached?) ? image : 'no_image.jpg'

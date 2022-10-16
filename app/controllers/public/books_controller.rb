@@ -6,7 +6,7 @@ class Public::BooksController < ApplicationController
     # 評価の高い順、新しい順の記述
     @books = Book.all.order(params[:sort])
     @book = Book.new
-    @page = Book.page(params[:page])
+    @books = @books.page(params[:page]).per(10)
   end
 
   def show
@@ -20,8 +20,9 @@ class Public::BooksController < ApplicationController
     if @book.save
       redirect_to book_path(@book), notice: "新規投稿に成功しました。"
     else
-      @books = Book.all
-      render :index
+      @books = Book.all.order(params[:sort])
+      @books = @books.page(params[:page]).per(10)
+      render "index"
     end
   end
 
@@ -39,7 +40,7 @@ class Public::BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_path
+    redirect_to customer_path(current_customer)
   end
 
 private

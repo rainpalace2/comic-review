@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-8 text-left">
               <p class="pt-3">タイトル : <%= @book.title %></p>
-              <p>説明 : <%= @book.body %></p>
+              <p>内容紹介 : <%= @book.body %></p>
               <p><%= render "public/books/static_rate", book: @book %></p>
               <p><%= render "public/book_comments/form", book: @book, book_comment: @book_comment %></p>
               <div class="mt-2 mb-4"> 
