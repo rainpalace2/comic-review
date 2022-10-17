@@ -39,6 +39,7 @@ class Public::GoodsController < ApplicationController
   def search_index_result
      # ransackの記述
     @q = Good.ransack(params[:q])
+    # distinctでデータベースから取得した重複するレコードを削除する
     @goods = @q.result(distinct: true)
     @qs = @goods.page(params[:page]).per(20)
   end
