@@ -1,0 +1,31 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row justify-content-center'>
+    <div class='col-md-8 offset-md-1 mt-3'>
+     <h4 class="mt-2 mb-4">
+      <b class="mr-4">タグ一覧</b>
+     </h4>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th></th>
+            <th>タグ名</th>
+            <th>関連数</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tags.each do |tag| %>
+            <tr>
+              <td></td>
+                  <%# タグの名前と、関連付くbook数を表示 %>
+              <td><%= link_to "#{tag.name}", tag_path(tag) %>
+              <td><%= link_to "( Books: #{tag.books.count} )", tag_path(tag) %></td>
+              <% end %>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

@@ -11,6 +11,12 @@
     <%= f.label :内容紹介 %>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
+  <div class="form-group">
+    <%= f.label :タグ %>
+    <%# Edit用に@book.tags.pluck(:name)でタグの配列を取得 %>
+    <%= f.text_field :tag, value: book.tags.pluck(:name), class: 'form-control book_tag' %>
+    <small>スペースで区切ることで複数指定できます。</small><br>
+  </div>
 
   <% if book.id === nil %>
     <div class="form-group" id="star">

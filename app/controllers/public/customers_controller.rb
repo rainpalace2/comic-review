@@ -13,6 +13,7 @@ class Public::CustomersController < ApplicationController
     @book_comment = BookComment.new
     @books = @customer.books.all.order(params[:sort])
     @books = @books.page(params[:page]).per(10)
+    @tag = @customer.books
   end
 
   def edit

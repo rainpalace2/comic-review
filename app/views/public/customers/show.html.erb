@@ -8,7 +8,7 @@
     <h4 class="mt-2 mb-4">
     <b class="mr-4">新規投稿</b>
     </h4>
-    
+
     <% if @book.errors.any? %>
       <div class="notification danger">
         <h2><%= @book.errors.count %>件のエラーがあります。</h2>
@@ -27,7 +27,7 @@
       <b class="mr-4">投稿一覧</b>
       </h4>
       <%= link_to "新しい順", customer_path(@customer,sort: 'created_at DESC') %> | <%= link_to "評価の高い順", customer_path(@customer,sort: 'rate DESC') %>
-      <%= render "public/books/index", books: @books, book: @book, book_comment: @book_comment, customer: @customer %>
+      <%= render "public/books/index", books: @books, book: @book, book_comment: @book_comment, customer: @customer, tag: @tag %>
     </div>
 
   </div>

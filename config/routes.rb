@@ -41,6 +41,7 @@ scope module: "public" do
    resources :book_comments, only: [:index, :create, :destroy]
   end
 
+  resources :tags, only: [:index, :show, :destroy]
   resources :customers, only: [:show, :edit, :update]
   resources :goods, only: [:index, :show] do
     collection do
