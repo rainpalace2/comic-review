@@ -18,12 +18,12 @@
                 <%# 該当のBookからアソシエーションでタグを取得 %>
                 <% @book.tags.each do |tag| %>
                   <%# タグを展開 %>
-                    <%= link_to tag.name, tag_path(tag) %>
+                    <%= link_to tag.name, tags_path %>
                 <% end %>
               </p>
               <p><%= render "public/books/static_rate", book: @book %></p>
               <p><%= render "public/book_comments/form", book: @book, book_comment: @book_comment %></p>
-              <div class="mt-2 mb-4"> 
+              <div class="mt-2 mb-4">
               <h4 class="mr-1"><b>コメント</b></h4>
               <div class="book-comments-counter"><%= render "public/book_comments/counter", book: @book, book_comment: @book_comment %></div>
               <div class="book-comments-index"><%= render "public/book_comments/index", book: @book %></div>
@@ -37,7 +37,7 @@
       </section>
      </div>
     </div>
-    
- 
+
+
 
 

@@ -7,6 +7,7 @@ class Public::BooksController < ApplicationController
     @books = Book.all.order(params[:sort])
     @book = Book.new
     @books = @books.page(params[:page]).per(10)
+    @tags = Tag.find_by(params[:book_id])
   end
 
   def show
@@ -30,13 +31,6 @@ class Public::BooksController < ApplicationController
       render "public/customers/show"
     end
     
-    # @book = Book.new(book_params)
-    # if @book.save
-    #   @book.save_tags(params[:book][:tag])
-    #   redirect_to about_path
-    # else
-    #   render :new
-    # end
   end
 
   def edit
@@ -44,18 +38,12 @@ class Public::BooksController < ApplicationController
   end
 
   def update
+    @book = Book.find(params[:id])
     if @book.update(book_params)
+       @book.save_tags(params[:book][:tag])
       redirect_to book_path(@book), notice: "更新しました。"
     else
       render "edit"
-    end
-    
-    @book = Book.find(params[:id])
-    if @book.update(boo_params)
-      @book.save_tags(params[:book][:tag])
-      redirect_to book_path(@book)
-    else
-      render :edit
     end
   end
 

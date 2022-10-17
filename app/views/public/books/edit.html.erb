@@ -15,18 +15,9 @@
             </ul>
           </div>
         <% end %>
-        
     		<%= render 'form', book: @book %>
     		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
     		<%= link_to 'Back', customer_path(current_customer), class: "back" %>
     </div>
   </div>
 </div>
-
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
-
-<h2>Post --></h2>
-<%= form_with model: @book do |book| %>
-  <%= render 'form', book: book %>
-<% end %>
