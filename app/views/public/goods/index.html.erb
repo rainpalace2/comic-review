@@ -1,50 +1,50 @@
-<!--<section class="section">-->
-<!-- <div class="container">-->
-<!--  <div class="row">-->
-<!--   <div class="col mb-3">-->
-<!--    <h4 class="text-center mt-4 ml-5 mb-3", style="background-color: #eee; width:200px; padding-left: 12px;">-->
-<!--        <b>おすすめ</b>-->
-<!--    </h4>-->
-    
+<section class="section">
  <div class="container">
-      <div class="theTarget">
-        <div style="background-image: url(images/no_image.jpg)"></div>
-        <div style="background-image: url(images/no_image.jpg)"></div>
-        <div style="background-image: url(images/no_image.jpg)"></div>
-        <div style="background-image: url(images/no_image.jpg)"></div>
-        <div style="background-image: url(images/no_image.jpg)"></div>
-      </div>
-    </div>
+  <div class="row">
+   <div class="col mb-3">
+    <h4 class="text-center mt-4 ml-5 mb-3", style="background-color: #eee; width:200px; padding-left: 12px;">
+        <b>おすすめ</b>
+    </h4>
+    
+ <!--<div class="container">-->
+ <!--     <div class="theTarget">-->
+ <!--       <div style="background-image: url(images/no_image.jpg)"></div>-->
+ <!--       <div style="background-image: url(images/no_image.jpg)"></div>-->
+ <!--       <div style="background-image: url(images/no_image.jpg)"></div>-->
+ <!--       <div style="background-image: url(images/no_image.jpg)"></div>-->
+ <!--       <div style="background-image: url(images/no_image.jpg)"></div>-->
+ <!--     </div>-->
+ <!--   </div>-->
 
     
-   <!-- <div class="container">-->
-   <!--  <div class="row justify-content-center">-->
-   <!--    <div class="col">-->
-   <!--      <div class="wrap">-->
-   <!--        <div class="item justify-content-center mt-1 row" style="display: flex;">-->
-   <!--          <%# @books.each do |book| %>-->
-   <!--            <div class="col-3">-->
-   <!--              <%#= link_to good_path(book.id) do %>-->
-   <!--              <div class="mr-3 mt-3">-->
-   <!--                <%#= image_tag book.image_url, size: "200x200" %>-->
-   <!--              <div><%#= book.title %></div>-->
-   <!--              <div><%#= book.author %></div>-->
-   <!--              </div>-->
-   <!--              <%# end %>-->
-   <!--            </div>-->
-   <!--          <%# end %>-->
-   <!--        </div>-->
-   <!--         <div class="row">-->
-   <!--            <div class="col-lg-8 offset-lg-4 mt-3 mb-3">-->
-   <!--         </div>-->
-   <!--        </div>-->
-   <!--      </div>-->
-   <!--    </div>-->
-   <!--  </div>-->
-   <!--</div>-->
-   <!--<div class="row justify-content-center mb-5">-->
-   <!--  <%#= paginate @books %>-->
-   <!-- </div>-->
+    <div class="container">
+     <div class="row justify-content-center">
+       <div class="col">
+         <div class="wrap">
+           <div class="item justify-content-center mt-1 row" style="display: flex;">
+             <% @books.each do |book| %>
+               <div class="col-3">
+                 <%= link_to good_path(book.id) do %>
+                 <div class="mr-3 mt-3">
+                   <%= image_tag book.image_url, size: "200x200" %>
+                 <div><%= book.title %></div>
+                 <div><%= book.author %></div>
+                 </div>
+                 <% end %>
+               </div>
+             <% end %>
+           </div>
+            <div class="row">
+               <div class="col-lg-8 offset-lg-4 mt-3 mb-3">
+            </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="row justify-content-center mb-5">
+     <%= paginate @books %>
+    </div>
 
     <!--<table class='table table-hover table-inverse'>-->
     <!-- <thead>-->

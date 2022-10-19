@@ -1,6 +1,6 @@
 class Public::BooksController < ApplicationController
-  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
   before_action :authenticate_customer!
+  before_action :ensure_correct_customer, only: [:edit, :update, :destroy]
 
   def index
     # 評価の高い順、新しい順の記述
@@ -14,7 +14,7 @@ class Public::BooksController < ApplicationController
    @book = Book.find(params[:id])
    @book_comment = BookComment.new
   end
-  
+
   def new
     @book = Book.new
   end
@@ -30,7 +30,7 @@ class Public::BooksController < ApplicationController
       @books = @books.page(params[:page]).per(10)
       render "public/customers/show"
     end
-    
+
   end
 
   def edit
@@ -57,7 +57,6 @@ private
   def book_params
     params.require(:book).permit(:title, :body, :rate, :image)
   end
-
 
   def ensure_correct_customer
     @book = Book.find(params[:id])
