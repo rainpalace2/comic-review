@@ -1,8 +1,10 @@
-<div class="row justify-content-center">
- <%= form_with url: search_path, method: :get, local: true do |f| %>
-  <%= f.text_field :title, placeholder: "作品名・作者名で検索", value: params[:title], class: "w-100" %>
-  <%= f.submit "検索", class: "btn btn-primary"  %>
- <% end %>   
+<div class="container">
+  <div class="row justify-content-center mt-5">
+   <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :title, placeholder: "作品名・作者名で検索", value: params[:title] %>
+    <%= f.submit "検索", class: "btn btn-primary"  %>
+   <% end %>   
+  </div>
 </div>
 
 <h4 class="text-center mt-4 ml-5 mb-3", style="background-color: #eee; width:200px; padding-left: 12px;">
@@ -26,10 +28,10 @@
             </div>
           <% end %>
         </div>
-       <div class="row">
-          <div class="col-lg-8 offset-lg-4 mt-3 mb-3 text-nowrap text-right ">
-            <%= link_to "全てを見る>>", search_index_result_goods_path %>
-       </div>
+         <div class="row">
+            <div class="col-lg-8 offset-lg-4 mt-3 mb-3">
+         </div>
+        </div>
       </div>
     </div>
   </div>

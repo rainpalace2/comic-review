@@ -23,3 +23,4 @@ ActiveStorage.start()
 window.$ = window.jQuery = require('jquery');
 
 require('./jquery.raty')
+require('./script')

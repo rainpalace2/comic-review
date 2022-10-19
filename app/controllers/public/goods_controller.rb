@@ -28,7 +28,7 @@ class Public::GoodsController < ApplicationController
   end
 
   def index
-    @books = Good.page(params[:page])
+    @books = Good.page(params[:page]).per(24)
   end
 
   def show
