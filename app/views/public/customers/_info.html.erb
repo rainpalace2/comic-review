@@ -22,9 +22,8 @@
 
 <!-- 編集画面のボタンを表示しない-->
 <div class='row'>
-<% if current_customer == customer && customer.full_name != "guest user" %>
- <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-primary w-25 mb-4" %>
-<% else %>
- 
-<% end %>
+  <% if current_customer == customer && customer.full_name != "guest user" %>
+   <%= link_to "編集する", edit_customer_path(customer), class:"btn btn-primary w-25 mb-4" %>
+  <% else %>
+  <% end %>
 </div>

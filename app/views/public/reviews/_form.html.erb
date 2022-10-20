@@ -13,8 +13,6 @@
   </div>
 <% end %>
 
- <%#= render "public/goods/static_rate", good: good %>
-
 <%= form_with model: review, url: good_reviews_path(good), local: true do |f| %>
  <%= f.hidden_field :good_id, value: good.id %>
 <div id="star" sytle="pt-2 pb-2">
@@ -37,5 +35,5 @@
      half: true,
      scoreName: 'review[score]'
    });
-   </script>
+  </script>
 

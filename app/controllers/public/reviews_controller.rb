@@ -12,7 +12,7 @@ class Public::ReviewsController < ApplicationController
     if @review.save
       redirect_to good_reviews_path(@review.good)
     else
-       @good = Good.find(params[:good_id])
+      @good = Good.find(params[:good_id])
       render "public/goods/show"
     end
   end

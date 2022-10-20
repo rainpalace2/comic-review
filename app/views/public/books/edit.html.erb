@@ -15,6 +15,7 @@
             </ul>
           </div>
         <% end %>
+        
     		<%= render 'form', book: @book %>
     		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
     		<%= link_to 'Back', customer_path(current_customer), class: "back" %>

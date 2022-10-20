@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'book_comments/index'
-    get 'book_comments/show'
-  end
   # end
 # 管理者用
 # URL /admin/sign_in ...
@@ -23,7 +19,7 @@ end
 devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions',
-  customers: "sessions#guest_sign_in"
+  #customers: "sessions#guest_sign_in"
 }
 
 #ゲストユーザー用
@@ -33,6 +29,7 @@ end
 
 root to: "public/homes#top"
 get "about" => "public/homes#about"
+get "tops" => "public/homes#tops"
 get "search" => "public/goods#search"
 scope module: "public" do
   get "customers/:id/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"

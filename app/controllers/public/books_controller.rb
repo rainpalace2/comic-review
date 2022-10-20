@@ -15,9 +15,6 @@ class Public::BooksController < ApplicationController
    @book_comment = BookComment.new
   end
 
-  def new
-    @book = Book.new
-  end
 
   def create
     @customer = current_customer

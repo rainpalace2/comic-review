@@ -4,4 +4,7 @@ class Public::HomesController < ApplicationController
 
   def about
   end
+  
+  def tops
+  end
 end
