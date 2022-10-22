@@ -29,7 +29,8 @@
               <div class="book-comments-index"><%= render "public/book_comments/index", book: @book %></div>
                <%= link_to "全て見る>>", book_book_comments_path(@book) %>
              <div class="text-right">
-               <%= link_to "戻る", books_path, class: "btn btn-primary mb-5" %>
+               <%= link_to "戻る", customer_path(current_customer), class: "btn btn-primary mb-5" %>
+               <%= link_to "投稿一覧", books_path, class: "btn btn-primary mb-5" %>
              </div>
             </div>
           </div>
