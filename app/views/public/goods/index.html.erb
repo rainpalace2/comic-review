@@ -10,7 +10,7 @@
  </div>
 </section>
 
-<div class="carousel slide carousel-fade" id="image" data-interval=4000 data-ride="carousel" style="max-width: 1200px; margin: auto; background-color: #ccc">
+<div class="carousel slide carousel-fade" id="image" data-interval="3000" data-ride="carousel" style="max-width: 1200px; margin: auto; background-color: #ccc">
       <ol class="carousel-indicators">
         <li data-target="#image" data-slide-to="0" class="active"></li>
         <li data-target="#image" data-slide-to="1"></li>
@@ -94,3 +94,9 @@
  <div class="row justify-content-center mb-5">
    <%= paginate @books %>
   </div>
+  
+<script>
+  $(document).on('turbolinks:load', function() {
+    $('.carousel').carousel({ interval: 3000 });
+});
+</script>
