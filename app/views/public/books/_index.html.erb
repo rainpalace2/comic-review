@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th></th>
+      <th></th>
       <th>タイトル</th>
       <th>内容紹介</th>
       <th>タグ</th>
@@ -10,6 +11,8 @@
   <tbody>
     <% books.each do |book| %>
       <tr>
+        <!--作成日時を表示する、 lメソッドで書式を指定-->
+        <td><%= l book.created_at, format: :short %></td>
         <td><%= link_to (book.customer) do %>
             <%= image_tag book.customer.get_profile_image, size: "50x50", class: "rounded-circle" %></td>
             <% end %>
