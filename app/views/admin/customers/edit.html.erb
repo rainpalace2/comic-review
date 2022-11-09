@@ -25,8 +25,15 @@
       </tr>
       <tr>
         <th>会員ステータス</th>
-        <td><%= f.radio_button :is_deleted, "false", checked: true %> 有効</td>
-        <td><%= f.radio_button :is_deleted, "true" %> 退会</td>
+        <!--ラベルのクリックでもボタンが反応する-->
+        <td>
+          <%= f.radio_button :is_deleted, "false", checked: true %> 
+          <%= f.label :is_deleted,'有効', value: false %>
+        </td>
+        <td>
+          <%= f.radio_button :is_deleted, "true" %>
+          <%= f.label :is_deleted,'退会', value: true %>
+        </td>
       </tr>
       <tr>
         <th><!--空白のセル--></th>

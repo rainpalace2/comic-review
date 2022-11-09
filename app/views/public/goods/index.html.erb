@@ -75,7 +75,7 @@
              <div class="col-3">
                <%= link_to good_path(book.id) do %>
                <div class="mr-3 mt-3">
-                 <%= image_tag book.image_url, size: "200x200" %>
+                 <%= image_tag book.image_url, width: '150' %>
                <div><%= book.title %></div>
                <div><%= book.author %></div>
                </div>
@@ -94,7 +94,7 @@
  <div class="row justify-content-center mb-5">
    <%= paginate @books %>
   </div>
-  
+
 <script>
   $(document).on('turbolinks:load', function() {
     $('.carousel').carousel({ interval: 3000 });

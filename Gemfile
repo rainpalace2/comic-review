@@ -70,3 +70,4 @@ gem 'rakuten_web_service'
 gem 'bulma-rails'
 gem 'kaminari','~> 1.2.1'
 gem 'ransack'
+gem "rails-i18n"

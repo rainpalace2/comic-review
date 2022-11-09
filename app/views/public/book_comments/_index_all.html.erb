@@ -2,6 +2,7 @@
   <tbody>
     <% book.book_comments.each do |book_comment| %>
       <tr>
+        <td><%= l book.created_at, format: :short %></td>
         <td>
           <%= link_to customer_path(book_comment.customer) do %>
             <%= image_tag book_comment.customer.get_profile_image, size: "50x50", class: "rounded-circle" %><br>

@@ -9,10 +9,12 @@
         <div class="container">
           <div class="row">
             <div class="col-md-4">
-              <p><%= image_tag @book.get_image, size: '300x300' %></p>
+              <!--sizeで指定すると画像が潰れる可能性があるのでwidthで幅のみ指定する-->
+              <p><%= image_tag @book.get_image, width: '300' %></p>
             </div>
             <div class="col-md-8 text-left">
-              <p class="pt-3">タイトル : <%= @book.title %></p>
+              <p><%= l @book.created_at, format: :short %></p>
+              <p>タイトル : <%= @book.title %></p>
               <p>内容紹介 : <%= @book.body %></p>
               <p>タグ :
                 <%# 該当のBookからアソシエーションでタグを取得 %>

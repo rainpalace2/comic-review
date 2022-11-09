@@ -1,4 +1,12 @@
 ja:
+ activerecord:
+   attributes:
+     book:
+       title: タイトル
+       body: 内容紹介
+       rate: 星
+     review:
+       score: 星
  time:
   formats:
    default: "%Y/%m/%d %H:%M:%S"

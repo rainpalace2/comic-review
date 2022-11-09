@@ -28,7 +28,7 @@
      <% @qs.each do |good| %>
          <tr>
            <td><%= link_to good_path(good.id) do %>
-           <%= image_tag good.image_url, size: "200x200" %></td>
+           <%= image_tag good.image_url, width: '150' %></td>
            <td class="align-middle"><%= good.title %><br>
            <div class="average-review-rating mb-2" data-score=<%= good.avg_score %>></div>
                 <script>

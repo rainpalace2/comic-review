@@ -20,7 +20,7 @@
             <div class="col-3">
               <%= link_to good_path(book.id) do %>
               <div class="mr-3 mt-3">
-                <%= image_tag book.image_url, size: "200x200" %>
+                <%= image_tag book.image_url, width: '200' %>
               <div><%= book.title %></div>
               <div><%= book.author %></div>
               </div>
@@ -49,7 +49,7 @@
     <% @books.each do |book| %>
       <tr>
         <td><%= link_to good_path(book.id) do %>
-        <%= image_tag book.image_url, size: "200x200" %></td>
+        <%= image_tag book.image_url, width: '200' %></td>
         <td class="align-middle"><%= book.title %></td>
         <td class="align-middle"><%= book.author %></td>
         <% end %>
